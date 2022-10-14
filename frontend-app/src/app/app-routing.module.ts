@@ -14,10 +14,7 @@ const routes: Routes = [
     {path:"findAllProduct",component:AdminProductRetrieveComponent}
   ]},
   
-  {path:"userHome",component:UserdashboardComponent,children:[
-    {path:"addProduct",component:AddProductComponent},
-    {path:"findAllProduct",component:AdminProductRetrieveComponent}
-  ]},
+  {path:"userHome",component:UserdashboardComponent},
 
   {path:"signUp",component:SignupComponent},
   {path:"",redirectTo:"login",pathMatch:"full"}

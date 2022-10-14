@@ -10,6 +10,11 @@ import { ProductService } from '../product.service';
 })
 export class UserdashboardComponent implements OnInit {
   flagos:boolean = false;
+  searchText:string='';
+  onSearchTextEntered(searchValue:string){
+    this.searchText=searchValue;
+   
+  }
 
   user:string ="";
   products:Array<Product>=[];

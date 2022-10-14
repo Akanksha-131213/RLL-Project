@@ -6,6 +6,7 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="P:\RLL-Project\backend-app\backend-app"/>
 			<item value="P:\Capstone Project\Capstone Project\Backend Project\backend-app"/>
 		</list>
 	</section>

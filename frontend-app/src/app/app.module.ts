@@ -10,6 +10,7 @@ import { UserdashboardComponent } from './userdashboard/userdashboard.component'
 import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { AdminProductRetrieveComponent } from './admin-product-retrieve/admin-product-retrieve.component';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { AdminProductRetrieveComponent } from './admin-product-retrieve/admin-pr
     UserdashboardComponent,
     AdmindashboardComponent,
     AddProductComponent,
-    AdminProductRetrieveComponent
+    AdminProductRetrieveComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
