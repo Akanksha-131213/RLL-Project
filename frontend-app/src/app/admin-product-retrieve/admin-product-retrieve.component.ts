@@ -19,6 +19,8 @@ export class AdminProductRetrieveComponent implements OnInit {
   pid:number =0;
   price:number =0;
   url:string ="";
+  type:string ="";
+  description:string ="";
   findAllProduct() {
     this.ps.findAllProduct().subscribe({
       next:(result:any)=>this.products=result,
@@ -43,6 +45,8 @@ export class AdminProductRetrieveComponent implements OnInit {
       this.pid=product.pid;
       this.price=product.price;
       this.url=product.url;
+      this.type=product.type;
+      this.description=product.description;
   }
 
   updateDataFromDb(){

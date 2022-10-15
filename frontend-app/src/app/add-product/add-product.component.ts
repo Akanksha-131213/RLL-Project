@@ -11,7 +11,9 @@ export class AddProductComponent implements OnInit {
   productRef = new FormGroup({
     pname:new FormControl(),
     price:new FormControl(),
-    url:new FormControl()
+    url:new FormControl(),
+    type:new FormControl(),
+    description:new FormControl()
   })
   storeMsg :string =""
   constructor(public ps:ProductService) { }

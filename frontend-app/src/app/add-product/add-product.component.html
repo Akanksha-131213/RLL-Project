@@ -7,6 +7,21 @@
         <input type="number" formControlName="price"><br/>
         <label>URL</label>
         <input type="url" formControlName="url"><br/>
+        <label for="type">Type</label>
+                <select type= "text" id="type" name="type" formControlName="type">
+                    <option value="Tablet">Tablet</option>
+                    <option value="Capsules">Capsules</option>
+                    <option value="Drops">Drops</option>
+                    <option value="Inhalers">Inhalers</option>
+                    <option value="Injections">Injections</option>
+                    <option value="Liquid">Liquid</option>
+                    
+                </select>
+        <!-- <input type="text" formControlName="type"><br/>
+        <label>Type</label> -->
+        <br>
+        <label>Description</label>
+        <input type="text" formControlName="description"><br/>
         <input type="submit" value="store Product"/><br/>
         <input type="reset" value="reset"/><br/>
     </form><br/>
