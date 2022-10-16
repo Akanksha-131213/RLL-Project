@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormGroup,FormControl} from '@angular/forms'
+import {FormGroup,FormControl, Validators} from '@angular/forms'
 import { ProductService } from '../product.service';
 @Component({
   selector: 'app-add-product',
@@ -9,12 +9,27 @@ import { ProductService } from '../product.service';
 export class AddProductComponent implements OnInit {
 
   productRef = new FormGroup({
-    pname:new FormControl(),
-    price:new FormControl(),
-    url:new FormControl(),
-    type:new FormControl(),
-    description:new FormControl()
+    pname:new FormControl('',[Validators.required]),
+    price:new FormControl('',[Validators.required]),
+    url:new FormControl('',[Validators.required]),
+    type:new FormControl('',[Validators.required]),
+    description:new FormControl('',[Validators.required])
   })
+  get pname(){
+    return this.productRef.get('pname');
+  }
+  get price(){
+    return this.productRef.get('price');
+  }
+  get url(){
+    return this.productRef.get('url');
+  }
+  get type(){
+    return this.productRef.get('type');
+  }
+  get description(){
+    return this.productRef.get('description');
+  }
   storeMsg :string =""
   constructor(public ps:ProductService) { }
 

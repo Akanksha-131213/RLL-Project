@@ -13,9 +13,10 @@
     >
       <img src="{{ p.url }}" width="300px" height="300px" />
       {{ p.pname }} {{ p.price }} {{ p.type }} {{ p.description }}
-      <input type="button" value="Buy" (click)="deleteProduct(p.pid)" />
+      <input type="button" value="Buy" routerLink="/billing" />
     </span>
   </span>
 
   <input type="button" value="logout" (click)="logout()" />
 </div>
+<router-outlet></router-outlet>

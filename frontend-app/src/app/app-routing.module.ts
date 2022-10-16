@@ -3,6 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { AddProductComponent } from './add-product/add-product.component';
 import { AdminProductRetrieveComponent } from './admin-product-retrieve/admin-product-retrieve.component';
 import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
+import { BillingComponent } from './billing/billing.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { ChecktqComponent } from './checktq/checktq.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { UserdashboardComponent } from './userdashboard/userdashboard.component';
@@ -15,7 +18,10 @@ const routes: Routes = [
   ]},
   
   {path:"userHome",component:UserdashboardComponent},
-
+  {path:"billing",component:BillingComponent },
+  {path:"checkout",component:CheckoutComponent},
+  {path:"checktq",component:ChecktqComponent},
+  
   {path:"signUp",component:SignupComponent},
   {path:"",redirectTo:"login",pathMatch:"full"}
 ];

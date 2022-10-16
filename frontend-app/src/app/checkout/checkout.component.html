@@ -1,0 +1,117 @@
+<div class="container">
+  <div class="row">
+    <div class="col-50">
+      <h3>Payment</h3>
+      <label class="form-label">Accepted Cards</label>
+      <div class="icon-container">
+        <i class="fa fa-cc-visa" style="color: navy"></i>
+        <i class="fa fa-cc-amex" style="color: blue"></i>
+        <i class="fa fa-cc-mastercard" style="color: red"></i>
+        <i class="fa fa-cc-discover" style="color: orange"></i>
+      </div>
+      <label class="form-label"><b>Name on Card</b></label>
+      <input
+        formControlName="cardname"
+        type="text"
+        class="form-control"
+        id="cardname"
+        name="cardname"
+        placeholder=" "
+      />
+      <span
+        class="text-danger"
+        *ngIf="
+          checkoutForm.controls['cardname'].dirty &&
+          checkoutForm.hasError('required', 'cardname')
+        "
+        >*Cardname is required</span
+      >
+      <label class="form-label"><b>Credit card number</b></label>
+      <input
+        formControlName="cardnumber"
+        type="text"
+        class="form-control"
+        id="cardnumber"
+        name="cardnumber"
+        placeholder=" "
+      />
+      <span
+        class="text-danger"
+        *ngIf="
+          checkoutForm.controls['cardnumber'].dirty &&
+          checkoutForm.hasError('required', 'cardnumber')
+        "
+        >*Cardnumber is required</span
+      >
+      <label class="form-label"><b> Month</b></label>
+      <input
+        formControlName="expmonth"
+        type="text"
+        class="form-control"
+        id="expmonth"
+        name="expmonth"
+        placeholder=" "
+      />
+      <span
+        class="text-danger"
+        *ngIf="
+          checkoutForm.controls['expmonth'].dirty &&
+          checkoutForm.hasError('required', 'expmonth')
+        "
+        >*ExpMonth is required</span
+      >
+      <div class="row">
+        <div class="col-50">
+          <label class="form-label"><b>Exp Year</b></label>
+          <input
+            formControlName="expyear"
+            type="text"
+            class="form-control"
+            id="expyear"
+            name="expyear"
+            placeholder=" "
+          />
+          <span
+            class="text-danger"
+            *ngIf="
+              checkoutForm.controls['expyear'].dirty &&
+              checkoutForm.hasError('required', 'expyear')
+            "
+            >*ExpYear is required</span
+          >
+        </div>
+
+        <div class="col-50">
+          <label class="form-label"><b>CVV</b></label>
+
+          <input
+            formControlName="cvv"
+            type="text"
+            class="form-control"
+            id="cvv"
+            name="cvv"
+            placeholder=" "
+          />
+          <span
+            class="text-danger"
+            *ngIf="
+              checkoutForm.controls['cvv'].dirty &&
+              checkoutForm.hasError('required', 'cvv')
+            "
+            >*CVV is required</span
+          >
+        </div>
+      </div>
+      <button
+        type="submit"
+        [disabled]="!checkoutForm.valid"
+        class="btn btn-success"
+        routerLink="/checktq"
+        (click)="checkOut()"
+      >
+        Submit
+      </button>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

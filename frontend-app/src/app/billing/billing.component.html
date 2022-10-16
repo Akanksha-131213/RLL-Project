@@ -1,0 +1,143 @@
+<div class="container">
+  <div class="row">
+    <div class="col-50">
+      <h3>Billing Address</h3>
+
+      <label class="form-label"
+        ><i class="fa fa-user"></i><b> Full Name</b></label
+      >
+      <input
+        formControlName="firstname"
+        type="text"
+        class="form-control"
+        id="fname"
+        name="firstname"
+        placeholder=""
+      />
+      <span
+        class="text-danger"
+        *ngIf="
+          billingForm.controls['firstname'].dirty &&
+          billingForm.hasError('required', 'firstname')
+        "
+        >*Firstname is required</span
+      >
+
+      <label class="form-label"
+        ><i class="fa fa-address-card-o"></i><b> Address1</b></label
+      >
+      <input
+        formControlName="address1"
+        type="text"
+        class="form-control"
+        id="adr"
+        name="address"
+        placeholder=" "
+      />
+      <span
+        class="text-danger"
+        *ngIf="
+          billingForm.controls['address1'].dirty &&
+          billingForm.hasError('required', 'address1')
+        "
+        >*Address is required</span
+      >
+      <label class="form-label"
+        ><i class="fa fa-address-card-o"></i><b> Address2</b></label
+      >
+      <input
+        formControlName="address2"
+        type="text"
+        class="form-control"
+        id="adr"
+        name="address"
+        placeholder=" "
+      />
+      <span
+        class="text-danger"
+        *ngIf="
+          billingForm.controls['address2'].dirty &&
+          billingForm.hasError('required', 'address2')
+        "
+        >*Address is required</span
+      >
+      <label class="form-label"
+        ><i class="fa fa-institution"></i><b> City</b></label
+      >
+      <input
+        formControlName="city"
+        type="text"
+        class="form-control"
+        id="city"
+        name="city"
+        placeholder=""
+      />
+      <span
+        class="text-danger"
+        *ngIf="
+          billingForm.controls['city'].dirty &&
+          billingForm.hasError('required', 'city')
+        "
+        >*City is required</span
+      >
+      <div class="row">
+        <div class="col-50">
+          <label class="form-label"><b>State</b></label>
+          <input
+            formControlName="state"
+            type="text"
+            class="form-control"
+            id="state"
+            name="state"
+            placeholder=""
+          />
+          <span
+            class="text-danger"
+            *ngIf="
+              billingForm.controls['state'].dirty &&
+              billingForm.hasError('required', 'state')
+            "
+            >*State is required</span
+          >
+        </div>
+        <div class="col-50">
+          <label class="form-label"><b>Zip</b></label>
+          <input
+            formControlName="zip"
+            type="text"
+            class="form-control"
+            id="zip"
+            name="zip"
+            placeholder=""
+          />
+          <span
+            class="text-danger"
+            *ngIf="
+              billingForm.controls['zip'].dirty &&
+              billingForm.hasError('required', 'zip')
+            "
+            >*Zip is required</span
+          >
+        </div>
+      </div>
+      <button
+        type="submit"
+        class="btn btn-primary"
+        routerLink="/checkout"
+        (click)="checkout()"
+      >
+        Proceed to Payment
+      </button>
+      <!-- <button
+      type="submit"
+      [disabled]="billingForm.invalid"
+      class="btn btn-primary"
+    >
+      Proceed to Payment
+    </button> -->
+    </div>
+  </div>
+</div>
+<hr />
+<router-outlet></router-outlet>
+<hr />

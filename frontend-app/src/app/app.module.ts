@@ -11,6 +11,9 @@ import { AdmindashboardComponent } from './admindashboard/admindashboard.compone
 import { AddProductComponent } from './add-product/add-product.component';
 import { AdminProductRetrieveComponent } from './admin-product-retrieve/admin-product-retrieve.component';
 import { SearchComponent } from './search/search.component';
+import { BillingComponent } from './billing/billing.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { ChecktqComponent } from './checktq/checktq.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,10 @@ import { SearchComponent } from './search/search.component';
     AdmindashboardComponent,
     AddProductComponent,
     AdminProductRetrieveComponent,
-    SearchComponent
+    SearchComponent,
+    BillingComponent,
+    CheckoutComponent,
+    ChecktqComponent
   ],
   imports: [
     BrowserModule,

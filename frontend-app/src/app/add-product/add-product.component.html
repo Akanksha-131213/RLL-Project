@@ -1,29 +1,53 @@
 <div>
-    <h2>Add Product</h2>
-    <form [formGroup]="productRef" (ngSubmit)="storeProduct()">
-        <label>PName</label>
-        <input type="text" formControlName="pname"><br/>
-        <label>Price</label>
-        <input type="number" formControlName="price"><br/>
-        <label>URL</label>
-        <input type="url" formControlName="url"><br/>
-        <label for="type">Type</label>
-                <select type= "text" id="type" name="type" formControlName="type">
-                    <option value="Tablet">Tablet</option>
-                    <option value="Capsules">Capsules</option>
-                    <option value="Drops">Drops</option>
-                    <option value="Inhalers">Inhalers</option>
-                    <option value="Injections">Injections</option>
-                    <option value="Liquid">Liquid</option>
-                    
-                </select>
-        <!-- <input type="text" formControlName="type"><br/>
+  <h2>Add Product</h2>
+  <form [formGroup]="productRef" (ngSubmit)="storeProduct()">
+    <label>PName</label>
+    <input type="text" formControlName="pname" [required]="true" /><br />
+    <span class="text-danger" *ngIf="pname && pname.touched && pname.invalid">
+      Value is required<br
+    /></span>
+    <label>Price</label>
+    <input type="number" formControlName="price" required /><br />
+    <span class="text-danger" *ngIf="price && price.touched && price.invalid">
+      Value is required<br
+    /></span>
+    <label>URL</label>
+    <input type="url" formControlName="url" required /><br />
+    <span class="text-danger" *ngIf="url && url.touched && url.invalid">
+      Value is required<br
+    /></span>
+
+    <label for="type">Type</label>
+    <select type="text" id="type" name="type" formControlName="type">
+      <option value="Tablet">Tablet</option>
+      <option value="Capsules">Capsules</option>
+      <option value="Drops">Drops</option>
+      <option value="Inhalers">Inhalers</option>
+      <option value="Injections">Injections</option>
+      <option value="Liquid">Liquid</option>
+    </select>
+    <span class="text-danger" *ngIf="type && type.touched && type.invalid">
+      Value is required<br
+    /></span>
+    <!-- <input type="text" formControlName="type"><br/>
         <label>Type</label> -->
-        <br>
-        <label>Description</label>
-        <input type="text" formControlName="description"><br/>
-        <input type="submit" value="store Product"/><br/>
-        <input type="reset" value="reset"/><br/>
-    </form><br/>
-    <span style="color:red">{{storeMsg}}</span>
+    <br />
+    <label>Description</label>
+    <input type="text" formControlName="description" required />
+    <span
+      class="text-danger"
+      *ngIf="description && description.touched && description.invalid"
+    >
+      Value is required<br /></span
+    ><br />
+    <input
+      type="submit"
+      value="store Product"
+      [disabled]="productRef.invalid"
+    /><br />
+    <input type="reset" value="reset" />
+    <br />
+  </form>
+  <br />
+  <span style="color: red">{{ storeMsg }}</span>
 </div>
