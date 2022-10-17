@@ -1,10 +1,19 @@
 <div>
   <h2>Users Details</h2>
-  <span *ngFor="let l of Login">
-    <br />
-    <span>{{ l.emailid }} </span><br />
-    <span>{{ l.password }} </span><br />
-
-    <input type="button" value="delete" (click)="deleteUser(l.emailid)" />
-  </span>
+  <div class="container">
+    <table class="table table-success">
+      <thead class="table-dark">
+        <th>UserName</th>
+        <th>Password</th>
+        <th>Action</th>
+      </thead>
+      <tr *ngFor="let l of Login">
+        <td>{{ l.emailid }}</td>
+        <td>{{ l.password }}</td>
+        <td>
+          <input type="button" value="delete" (click)="deleteUser(l.emailid)" />
+        </td>
+      </tr>
+    </table>
+  </div>
 </div>
