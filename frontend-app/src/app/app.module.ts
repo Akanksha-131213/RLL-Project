@@ -16,6 +16,8 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { ChecktqComponent } from './checktq/checktq.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { ViewuserComponent } from './viewuser/viewuser.component';
+import { CartComponent } from './cart/cart.component';
+import { FilterPipe } from './shared/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,10 @@ import { ViewuserComponent } from './viewuser/viewuser.component';
     CheckoutComponent,
     ChecktqComponent,
     ChangePasswordComponent,
-    ViewuserComponent
+    ViewuserComponent,
+    CartComponent,
+    FilterPipe,
+    
   ],
   imports: [
     BrowserModule,

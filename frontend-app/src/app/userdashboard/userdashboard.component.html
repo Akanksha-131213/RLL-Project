@@ -1,19 +1,64 @@
 <div>
   <h2>Welcome to home page user {{ user }}</h2>
   <app-search (searchTextChanged)="onSearchTextEntered($event)"></app-search>
-
   <br />
+  <button routerLink="/cart" class="btn btn-primary">
+    <i style="font-size: 30px" class="fas fa-cart-plus"></i>
+    <div style="font-size: 10px" class="badge bg-danger">{{ totalItem }}</div>
+  </button>
 
-  <span *ngFor="let p of products">
+  <div class="card-top container-fluid">
+    <div class="container d-flex">
+      <div class="item button btn">
+        <a (click)="filter('')">
+          <h6>All products</h6>
+        </a>
+      </div>
+      <div class="item button btn">
+        <a (click)="filter('Tablet')">
+          <h6>Tablet</h6>
+        </a>
+      </div>
+      <div class="item button btn">
+        <a (click)="filter('Capsules')">
+          <h6>Capsules</h6>
+        </a>
+      </div>
+      <div class="item button btn">
+        <a (click)="filter('Inhalers')">
+          <h6>Inhalers</h6>
+        </a>
+      </div>
+      <div class="item button btn">
+        <a (click)="filter('Injections')">
+          <h6>Injections</h6>
+        </a>
+      </div>
+      <div class="item button btn">
+        <a (click)="filter('Liquid')">
+          <h6>Liquid</h6>
+        </a>
+      </div>
+      <div class="item button btn">
+        <a (click)="filter('Drops')">
+          <h6>Drops</h6>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <span *ngFor="let item of filterCategory | filter: searchKey:'type'">
     <span
       *ngIf="
         searchText === '' ||
-        p.pname.toLowerCase().includes(searchText.toLowerCase())
+        item.pname.toLowerCase().includes(searchText.toLowerCase())
       "
     >
-      <img src="{{ p.url }}" width="300px" height="300px" />
-      {{ p.pname }} {{ p.price }} {{ p.type }} {{ p.description }}
-      <input type="button" value="Buy" routerLink="/billing" />
+      <img src="{{ item.url }}" width="300px" height="300px" />
+      {{ item.pname }} {{ item.price }} {{ item.type }} {{ item.description }}
+      <button class="btn btn-primary" (click)="addtocart(item)">
+        Add to cart
+      </button>
     </span>
   </span>
 

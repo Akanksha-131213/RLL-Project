@@ -4,6 +4,7 @@ import { AddProductComponent } from './add-product/add-product.component';
 import { AdminProductRetrieveComponent } from './admin-product-retrieve/admin-product-retrieve.component';
 import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
 import { BillingComponent } from './billing/billing.component';
+import { CartComponent } from './cart/cart.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { ChecktqComponent } from './checktq/checktq.component';
@@ -13,6 +14,7 @@ import { UserdashboardComponent } from './userdashboard/userdashboard.component'
 import { ViewuserComponent } from './viewuser/viewuser.component';
 
 const routes: Routes = [
+  {path:"cart",component:CartComponent},
   {path:"changePassword",component:ChangePasswordComponent},
   {path:"viewuser",component:ViewuserComponent},
   {path:"login",component:LoginComponent},

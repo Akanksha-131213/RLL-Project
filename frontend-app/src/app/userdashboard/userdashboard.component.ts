@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Product } from '../product';
-import { ProductService } from '../product.service';
+import { CartService } from '../cart.service';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-userdashboard',
@@ -10,24 +10,65 @@ import { ProductService } from '../product.service';
 })
 export class UserdashboardComponent implements OnInit {
   flagos:boolean = false;
-  searchText:string='';
+  searchText:string=''; 
+  user:string ="";
+  public productList : any ;
+  public filterCategory : any;
+  searchKey:string ="";
+  public totalItem : number = 0;
+  public searchTerm !: string;
   onSearchTextEntered(searchValue:string){
     this.searchText=searchValue;
    
   }
 
-  user:string ="";
-  products:Array<Product>=[];
-  constructor(public router:Router,public ps:ProductService) { }
+ 
+  
+  constructor(public router:Router,private api : ApiService, private cartService : CartService) { }
 
   ngOnInit(): void {
-    this.findAllProduct();
+
+    
     let obj = sessionStorage.getItem("userDetails");
     if(obj!=null){
       this.user=obj;
     }
+    this.cartService.getProducts()
+    .subscribe(res=>{
+      this.totalItem = res.length;
+    })
+    this.api.getProduct()
+    .subscribe(res=>{
+      this.productList = res;
+      this.filterCategory = res;
+      this.productList.forEach((a:any) => {
+        
+        Object.assign(a,{quantity:1,total:a.price});
+      });
+      console.log(this.productList)
+    });
+
+    this.cartService.search.subscribe((val:any)=>{
+      this.searchKey = val;
+    })
+  }
+  addtocart(item: any){
+    this.cartService.addtoCart(item);
+  }
+  filter(type:string){
+    this.filterCategory = this.productList
+    .filter((a:any)=>{
+      if(a.type == type || type==''){
+        return a;
+      }
+    })
   }
 
+  search(event:any){
+    this.searchTerm = (event.target as HTMLInputElement).value;
+    console.log(this.searchTerm);
+    this.cartService.search.next(this.searchTerm);
+  }
 
   logout() {
     sessionStorage.removeItem("userDetails");
@@ -35,55 +76,6 @@ export class UserdashboardComponent implements OnInit {
   }
 
 
- flago(){
-  this.flagos=true;
 
- }
-
-  flag:boolean = false;
-  pid:number =0;
-  price:number =0;
-  url:string ="";
-  type:string ="";
-  description:string ="";
-
-  findAllProduct() {
-    this.ps.findAllProduct().subscribe({
-      next:(result:any)=>this.products=result,
-      error:(error:any)=>console.log(error),
-      complete:()=>console.log("completed")
-    })
-  }
-
-  deleteProduct(pid:number){
-    //console.log(pid)
-    this.ps.deleteProductById(pid).subscribe({
-      next:(result:any)=>console.log(result),
-      error:(error:any)=>console.log(error),
-      complete:()=>{
-          this.findAllProduct();   
-      }
-    })
-  }
-
-  updateProduct(product:any){
-      this.flag= true;
-      this.pid=product.pid;
-      this.price=product.price;
-      this.url=product.url;
-      this.type=product.type;
-      this.description=product.description;
-  }
-
-  updateDataFromDb(){
-    let product = {pid:this.pid,price:this.price,url:this.url,type:this.type,description:this.description};
-    this.ps.updateProduct(product).subscribe({
-      next:(result:any)=>console.log(result),
-      error:(error:any)=>console.log(error),
-      complete:()=>{
-          this.findAllProduct();   
-      }
-    })
-    this.flag=false;
-  }
+  
 }
