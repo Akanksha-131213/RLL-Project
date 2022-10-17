@@ -14,6 +14,8 @@ import { SearchComponent } from './search/search.component';
 import { BillingComponent } from './billing/billing.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { ChecktqComponent } from './checktq/checktq.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
+import { ViewuserComponent } from './viewuser/viewuser.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { ChecktqComponent } from './checktq/checktq.component';
     SearchComponent,
     BillingComponent,
     CheckoutComponent,
-    ChecktqComponent
+    ChecktqComponent,
+    ChangePasswordComponent,
+    ViewuserComponent
   ],
   imports: [
     BrowserModule,

@@ -17,6 +17,7 @@ export class AdminProductRetrieveComponent implements OnInit {
   }
   flag:boolean = false;
   pid:number =0;
+  pname:string="";
   price:number =0;
   url:string ="";
   type:string ="";
@@ -43,6 +44,7 @@ export class AdminProductRetrieveComponent implements OnInit {
   updateProduct(product:any){
       this.flag= true;
       this.pid=product.pid;
+      this.pname=product.pname;
       this.price=product.price;
       this.url=product.url;
       this.type=product.type;
@@ -50,7 +52,7 @@ export class AdminProductRetrieveComponent implements OnInit {
   }
 
   updateDataFromDb(){
-    let product = {pid:this.pid,price:this.price,url:this.url};
+    let product = {pid:this.pid,price:this.price,url:this.url,type:this.type,description:this.description};
     this.ps.updateProduct(product).subscribe({
       next:(result:any)=>console.log(result),
       error:(error:any)=>console.log(error),

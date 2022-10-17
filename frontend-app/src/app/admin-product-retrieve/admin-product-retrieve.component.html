@@ -3,16 +3,25 @@
   <div *ngIf="flag">
     <h2>Update Product</h2>
     <form (ngSubmit)="updateDataFromDb()">
-      <label>PId</label>
+      <label>P id</label>
       <input type="number" name="pid" [(ngModel)]="pid" readonly /><br />
+      <label>PName</label>
+      <input type="text" name="pname" [(ngModel)]="pname" /><br />
       <label>Price</label>
       <input type="number" name="price" [(ngModel)]="price" /><br />
       <label>URL</label>
       <input type="URL" name="url" [(ngModel)]="url" /><br />
-      <label>Type</label>
-      <input type="text" name="type" [(ngModel)]="type" /><br />
+      <label for="type">Type</label>
+      <select type="text" id="type" name="type" [(ngModel)]="type">
+        <option value="Tablet">Tablet</option>
+        <option value="Capsules">Capsules</option>
+        <option value="Drops">Drops</option>
+        <option value="Inhalers">Inhalers</option>
+        <option value="Injections">Injections</option>
+        <option value="Liquid">Liquid</option>
+      </select>
       <label>Description</label>
-      <input type="text" name="price" [(ngModel)]="description" /><br />
+      <input type="text" name="description" [(ngModel)]="description" /><br />
       <input type="submit" value="update data" />
       <input type="reset" value="reset" />
     </form>

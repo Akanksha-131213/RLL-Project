@@ -10,7 +10,7 @@ export class SignupComponent implements OnInit {
   loginRef = new FormGroup({
     emailid:new FormControl(),
     password:new FormControl(),
-    typeOfUser:new FormControl()
+    typeOfUser:new FormControl('user')
   });
   msg:string=""
 
